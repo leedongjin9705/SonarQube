@@ -7,8 +7,8 @@
 목차
 
 1. 기본 사용법
-2. DB연결법
-3. 서버연동법
+2. 서버연동법
+3. DB연결법
 4. 로그인법
 5. Global Token 생성법
 6. Dependency-Check 설치법
@@ -32,6 +32,39 @@
 아래 Analyze All Project Files 클릭하면 검사됩니다. 그렇지만 이렇게 보면 리포팅이 어렵습니다.
 <img width="831" height="385" alt="3" src="https://github.com/user-attachments/assets/792d4e65-f4f9-445d-a45e-3a61155eae64" />
 
+
+
+서버연동법
+
+
+인텔리제이에서 확인이 가능하지만, 취약점이 많은 지금 상황에서는 확인이 어렵습니다.
+두가지 방법이 있는데
+1. 소나큐브 커뮤니티 사용(무료)
+2. 웹에서 사용하는 두 가지 방법이 있는데
+
+저희는 무료 기준으로 사용해보겠습니다.
+
+1. 소나큐브 커뮤니티는 java 버전 21 이 필요. 기존 java 버전을 건들면 안되니 소나큐브에만 java 21 사용하겠습니다|(요구되는 자바 버전은 계속 높아질 수 있음)
+2. https://adoptium.net/temurin/releases/?version=21   옆의 사이트에서 아래의 zip 파일 다운로드 후 C드라이브에 압축풀기(폴더명 및 경로 맞춰주세요 - 폴더명: jdk-21)
+<img width="1024" height="252" alt="5" src="https://github.com/user-attachments/assets/ad2ec020-3c86-49d1-8d5e-674f7ba1c1d9" />
+
+
+
+3. https://www.sonarsource.com/products/sonarqube/downloads/success-download-community-edition/ 옆의 사이트에서 
+SONARQUBE COMMUNITY BUILD 다운로드
+4. C 드라이브에서 압축을 풀어줍니다.(폴더명 및 경로 맞춰주세요 - 폴더명: sonarqube-26.3.0.120487)
+5. C:\sonarqube-26.3.0.120487\bin\windows-x86-64 경로에서 git bash 열기
+6. 아래 명령어 순서대로 실행
+
+export SONAR_JAVA_PATH="C:/jdk-21/bin/java.exe"
+./StartSonar.bat
+
+6-1. export SONAR_JAVA_PATH="C:/jdk-21/bin/java.exe" 명령어는 일회성으로 계속 써줘야 함
+귀찮다면 StartSonar.bat 파일을 수정. 
+파일중 @echo off 를 찾아 그 아래에 1줄을 추가해주면 된다.
+
+@echo off
+set SONAR_JAVA_PATH=C:\jdk-21\bin\java.exe
 
 
 DB 연결법
@@ -71,40 +104,6 @@ sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube?currentSchema=public
 
 테이블을 자동으로 생성하느라 실행이 늦을수도 있으니, 기다려 주세요.
 
-
-
-
-서버연동법
-
-
-인텔리제이에서 확인이 가능하지만, 취약점이 많은 지금 상황에서는 확인이 어렵습니다.
-두가지 방법이 있는데
-1. 소나큐브 커뮤니티 사용(무료)
-2. 웹에서 사용하는 두 가지 방법이 있는데
-
-저희는 무료 기준으로 사용해보겠습니다.
-
-1. 소나큐브 커뮤니티는 java 버전 21 이 필요. 기존 java 버전을 건들면 안되니 소나큐브에만 java 21 사용하겠습니다|(요구되는 자바 버전은 계속 높아질 수 있음)
-2. https://adoptium.net/temurin/releases/?version=21   옆의 사이트에서 아래의 zip 파일 다운로드 후 C드라이브에 압축풀기(폴더명 및 경로 맞춰주세요 - 폴더명: jdk-21)
-<img width="1024" height="252" alt="5" src="https://github.com/user-attachments/assets/ad2ec020-3c86-49d1-8d5e-674f7ba1c1d9" />
-
-
-
-3. https://www.sonarsource.com/products/sonarqube/downloads/success-download-community-edition/ 옆의 사이트에서 
-SONARQUBE COMMUNITY BUILD 다운로드
-4. C 드라이브에서 압축을 풀어줍니다.(폴더명 및 경로 맞춰주세요 - 폴더명: sonarqube-26.3.0.120487)
-5. C:\sonarqube-26.3.0.120487\bin\windows-x86-64 경로에서 git bash 열기
-6. 아래 명령어 순서대로 실행
-
-export SONAR_JAVA_PATH="C:/jdk-21/bin/java.exe"
-./StartSonar.bat
-
-6-1. export SONAR_JAVA_PATH="C:/jdk-21/bin/java.exe" 명령어는 일회성으로 계속 써줘야 함
-귀찮다면 StartSonar.bat 파일을 수정. 
-파일중 @echo off 를 찾아 그 아래에 1줄을 추가해주면 된다.
-
-@echo off
-set SONAR_JAVA_PATH=C:\jdk-21\bin\java.exe
 
 로그인법
 
