@@ -47,7 +47,8 @@ DB 만들기(기존 DB 사용시 생략)
 2. 전용 DB 생성(모를시 GPT - 기존에 만들어둔 게 있어서 그런지 이름만 넣으니 생성이 되어 못썼습니다..)
 3. 계정 생성
 4. 사용자 생성 및 권한 설정
-<img width="423" height="454" alt="4" src="https://github.com/user-attachments/assets/bab6c5ec-6612-4d2f-b0a1-890cbad43d8a" />
+<img width="1304" height="720" alt="1" src="https://github.com/user-attachments/assets/2a6320e5-eece-4037-ac23-77cf37826d0d" />
+
 
 순서대로 실행
 
