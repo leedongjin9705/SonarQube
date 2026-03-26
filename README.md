@@ -1,7 +1,3 @@
-<img width="1024" height="365" alt="10" src="https://github.com/user-attachments/assets/5329d08a-df60-4cc9-a44f-e47d9b0920bd" /><img width="392" height="505" alt="스크린샷 2026-03-11 100337" src="https://github.com/user-attachments/assets/f80d1f51-4e68-43f9-8917-6c7382e4a29f" /># SonarQube
-SAST 검사툴 소나큐브 메뉴얼 조사
-
-
 소나큐브(SonarQube)란
 
 소나큐브는 소스 코드를 실행하지 않고도 잠재적인 결함, 보안 취약점, 중복 코드 등을 자동으로 찾아내는 SAST(Static Application Security Testing, 정적 분석) 플랫폼입니다.
