@@ -124,7 +124,7 @@ properties 설정
         <sonar.token>글로벌 토큰</sonar.token>
         <ossindex.analyzer.enabled>true</ossindex.analyzer.enabled>
         <ossIndexUsername>OOS 회원가입 아이디</ossIndexUsername>
-        <ossIndexPassword>token 값</ossIndexPassword>
+        <ossIndexPassword>OOS token 값</ossIndexPassword>
 
 
 build 설정
