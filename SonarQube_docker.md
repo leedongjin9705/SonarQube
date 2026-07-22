@@ -40,4 +40,15 @@ projects → create a local project 클릭
 
 아래 실행.
 
-docker run --rm -e SONAR_HOST_URL=http://host.docker.internal:9000 -e SONAR_TOKEN=여기에토큰 -v c:/DevEnvNew/workspace/TV_OD_WEB:/usr/src sonarsource/sonar-scanner-cli -Dsonar.projectKey=TV_OD_WEB -Dsonar.sources=src,webapp -Dsonar.exclusions=**/target/**,**/.mvn/**,**/node_modules/**,**/deploy/**,webapp/hyper_saas/**,**/*.min.js,**/*.min.css -Dsonar.sourceEncoding=UTF-8 -Dsonar.java.source=17
+컴파일
+.\mvnw.cmd install:install-file -Dfile=c:\DevEnvNew\workspace\TV_OD_ADM\webapp\WEB-INF\lib\WS_FW_SS2-2.1.jar -DgroupId=kr.co.webstyle -DartifactId=WS_FW_SS2 -Dversion=2.1 -Dpackaging=jar
+
+클린
+.\mvnw.cmd -DskipTests clean compile
+
+아래 명령어는 검사 제외 대상 추가된 명령어로, 프로젝트에 맞게 작성되어야함.
+
+커서가 해줌
+
+프롬프트는 프로젝트 읽고 맞게 다시 작성해달라는 식으로 말하면 해줌.
+docker run --rm -e SONAR_HOST_URL=http://host.docker.internal:9000 -e SONAR_TOKEN=토큰 -v c:/DevEnvNew/workspace/TV_OD_WEB:/usr/src sonarsource/sonar-scanner-cli -Dsonar.projectKey=TV_OD_WEB -Dsonar.sources=src/main/java,src/main/resources/com/standard/kr/order/user/database,webapp/customer,webapp/order,webapp/order_inventory,webapp/retrn,webapp/notice,webapp/fnnc,webapp/form,webapp/comm,webapp/js/CommonUtils.js,webapp/js/SiteConfig.js,webapp/js/utils,webapp/index.html,webapp/index.js,webapp/main.html,webapp/main.js,webapp/error.html,webapp/error-404.html -Dsonar.exclusions=**/*.min.js,**/*.min.css -Dsonar.sourceEncoding=UTF-8 -Dsonar.java.binaries=webapp/WEB-INF/classes -Dsonar.java.source=11
