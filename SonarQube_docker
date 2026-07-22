@@ -1,0 +1,44 @@
+도커를 사용한 소나큐브 사용법
+
+무료로 사용하기 위해 도커로 SonarQube Community Build를 설치 후 사용 할 예정.
+
+과거 메뉴얼보다 훨씬 편함
+
+
+
+cmd 창에 아래 명령어 입력
+
+docker run -d --name sonarqube -p 9000:9000 sonarqube:community
+
+
+이후 localhost:9000에 들어가서
+
+id, pass : admin
+
+이후 비밀번호 수정
+
+
+
+My Account 클릭
+
+
+
+global 토큰 생성
+
+
+
+projects → create a local project 클릭
+
+
+
+프로젝트 명에 따라 생성
+
+
+
+이후 cmd에서 프로젝트 경로로 이동
+
+
+
+아래 실행.
+
+docker run --rm -e SONAR_HOST_URL=http://host.docker.internal:9000 -e SONAR_TOKEN=여기에토큰 -v c:/DevEnvNew/workspace/TV_OD_WEB:/usr/src sonarsource/sonar-scanner-cli -Dsonar.projectKey=TV_OD_WEB -Dsonar.sources=src,webapp -Dsonar.exclusions=**/target/**,**/.mvn/**,**/node_modules/**,**/deploy/**,webapp/hyper_saas/**,**/*.min.js,**/*.min.css -Dsonar.sourceEncoding=UTF-8 -Dsonar.java.source=17
